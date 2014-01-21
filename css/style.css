@@ -1,0 +1,124 @@
+body{
+    background: #0d151a;
+    margin: auto;
+    height: 100%;
+}
+
+*{
+    padding: 0px;
+}
+
+html{
+    height: 100%;
+}
+
+.container {
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+.left {
+    float:left;
+    background-image:url(img/left.png);
+    background-position:right;
+    background-repeat:repeat-y;
+    display:table-cell;
+    width:100%;
+    height: 100%;
+}
+
+.center {
+    color: white;
+    width: 500px;
+    display:table-cell;
+    height: 100%;
+}
+
+.right {
+    float:right;
+    background-image:url(img/right.png);
+    background-position:left;
+    background-repeat:repeat-y;
+    display:table-cell;
+    width:100%;
+    height: 100%;
+}
+
+.content {
+    position: absolute;
+    width:inherit;
+    height:inherit;
+}
+
+.logo {
+    position:relative;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    background:url(img/logo_idle.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+.logo:hover {
+    background-image:url(img/logo_hover.png);
+}
+
+.listen {
+    position:relative;
+    background:url(img/l_idle.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+.listen:hover, .listen.hovered {
+    position:relative;
+    background:url(img/l_hover.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+#info {
+    position:relative;
+    background:url(img/i_idle.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+#info:hover, #info.hovered {
+    position:relative;
+    background:url(img/i_hover.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+.contact {
+    position:relative;
+    background:url(img/c_idle.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+.contact:hover, .contact.hovered {
+    position:relative;
+    margin: 0px;
+    background:url(img/c_hover.png) center no-repeat;
+    width:100%;
+    height:100px;
+}
+
+
+.content_text {
+    overflow: hidden;
+    padding: 10px 30px 10px 30px;
+    font-family: "Lato";
+    font-size: 1.5em;
+    color: #d1d8de;
+    text-align: justify;
+}
+
+a{
+    color: inherit;
+    text-decoration:none;
+}
