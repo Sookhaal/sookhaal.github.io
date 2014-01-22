@@ -4,10 +4,20 @@
         <meta charset="utf-8"/>
         <link href="//fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/audioplayer.css" />
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/audioplayer.js"></script>
+        <link rel="prefetch" href="css/img/c_hover.png">
+        <link rel="prefetch" href="css/img/l_hover.png">
+        <link rel="prefetch" href="css/img/i_hover.png">
         <title>AUDIOmorph</title>
     </head>
     <body>
+        <script>
+            $( function() {
+                $( 'audio' ).audioPlayer();
+            });
+        </script>
         <div class="container">
             <div class="left"></div>
             <div class="center">
@@ -15,7 +25,9 @@
                     <div class="logo"></div>
                     
                     <a href="#" class="toggle1"> <div class="listen"></div> </a>
-                    <div id="content1" class="player">MUSIC PLAYER HERE</div>
+                    <div id="content1" class="player">
+                        <div class="player_info"><p><b>Dying Flag</b> - Painful Revenge</p></div>
+                        <audio src="res/PainfulRevenge_1701.mp3" preload="none" controls></audio></div>
                     
                     <a href="#" class="toggle2"> <div class="info"></div> </a>
                     <div id="content2" class="content_text">
@@ -24,11 +36,11 @@
                     
                     <a href="#" class="toggle3"> <div class="contact"></div> </a>
                     <div id="content3" class="content_text">
-                        <p>Contactez nous par mail à l'adresse: <a href="mailto:contact@audiomorph.net">contact@audiomorph.net</a></p></div>
+                        <p>Contactez nous par mail à l'adresse: <a href="mailto:***">******</a></p></div>
                 </div>
-                <script type="text/javascript" src="script.js"></script>
             </div>
             <div class="right"></div> 
         </div>
+        <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>

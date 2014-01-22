@@ -122,3 +122,16 @@ a{
     color: inherit;
     text-decoration:none;
 }
+
+.player {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.player_info {
+    overflow: hidden;
+    font-family: "Lato";
+    font-size: 1.5em;
+    color: #d1d8de;
+    text-align: justify;
+}
