@@ -1,11 +1,7 @@
 body{
     background: #0d151a;
-    margin: auto;
     height: 100%;
-}
-
-*{
-    padding: 0px;
+    margin: 0;
 }
 
 html{
@@ -31,8 +27,8 @@ html{
 
 .center {
     color: white;
-    width: 500px;
     display:table-cell;
+    width: 500px;
     height: 100%;
 }
 
@@ -47,9 +43,11 @@ html{
 }
 
 .content {
-    position: absolute;
+    position:absolute;
     width:inherit;
     height:inherit;
+    display:block;
+    overflow-y:auto;
 }
 
 .logo {
@@ -110,7 +108,7 @@ html{
 
 
 .content_text {
-    overflow: hidden;
+    overflow:visible;
     padding: 10px 30px 10px 30px;
     font-family: "Lato";
     font-size: 1.5em;
@@ -134,4 +132,7 @@ a{
     font-size: 1.5em;
     color: #d1d8de;
     text-align: justify;
+}
+body {
+    height:100%;
 }
