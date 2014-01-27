@@ -1,12 +1,12 @@
-var bContent1 = false, bContent2 = false, bContent3 = false;
-var widthValue, paddingValue, FIREFOX;
+var bContent1 = false, bContent2 = false, bContent3 = false, bContent4 = false;
+var widthValue, marginValue, FIREFOX;
 
 jQuery.fn.center = function () {
     this.css("position", "absolute");
     this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
-                                                $(window).scrollTop()) + "px");
+                             $(window).scrollTop()) + "px");
     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
-                                                $(window).scrollLeft()) + "px");
+                              $(window).scrollLeft()) + "px");
     return this;
 }
 
@@ -22,12 +22,12 @@ function preload(images) {
     }
 }
 
-$("#content1, #content2, #content3").hide();
+$("#content1, #content2, #content3, #content4").hide();
 
 $(function () {
     "use strict";
     $('audio').audioPlayer();
-
+    
     FIREFOX = /Firefox/i.test(navigator.userAgent);
     if (FIREFOX) {
         $(".left, .right").hide();
@@ -36,51 +36,68 @@ $(function () {
         });
         
         console.log("Test");
-
+        
         $(".center").center();
     }
 });
 
-$(".toggle1").click(function (e) {
+$("#toggle1").click(function (e) {
     "use strict";
-    e.preventDefault();
-    $("#content1").slideToggle(300, function () {
-        bContent1 = !bContent1;
-    });
-    
     $(".listen").toggleClass("hovered");
+    
+    $("#content1").slideToggle(300, function () {bContent1 = !bContent1});
     
     if (!bContent1 && !FIREFOX) {
         widthValue = 900;
-        paddingValue = 50;
+        marginValue = 50;
     } else if (FIREFOX){
         
     } else {
         widthValue = 500;
-        paddingValue = 30;
+        marginValue = 30;
     }
     
     $(".center").animate({width: widthValue}, 300, function () {
         widthValue = 500;
     });
     
-    $(".content_text").animate({paddingLeft: paddingValue, paddingRight: paddingValue}, 300, function () { paddingValue = 30; });
+    $(".content_text").animate({marginRight: marginValue, marginLeft: marginValue}, 300, function () { marginValue = 30; });
+    
+    e.preventDefault();
 });
 
-$(".toggle2").click(function (e) {
+$("#toggle2").click(function (e) {
     "use strict";
-    e.preventDefault();
     
     $(".info").toggleClass("hovered");
     
-    $("#content2").slideToggle(300, function () {});
+    $("#content2").slideToggle(300, function () {bContent2 = !bContent2});
+    if (!bContent2)
+        $('html,body').animate({scrollTop: $("#content2").offset().top},300);
+    
+    e.preventDefault();
 });
 
-$(".toggle3").click(function (e) {
+$("#toggle3").click(function (e) {
     "use strict";
-    e.preventDefault();
     
     $(".contact").toggleClass("hovered");
     
-    $("#content3").slideToggle(300, function () {});
+    $("#content3").slideToggle(300, function () {bContent3 = !bContent3});
+    if (!bContent3)
+        $('html,body').animate({scrollTop: $("#content3").offset().top},300);
+    
+    e.preventDefault();
+});
+
+$("#toggle4").click(function (e) {
+    "use strict";
+    
+    $(".contact").toggleClass("hovered");
+    
+    $("#content4").slideToggle(300, function () {bContent4 = !bContent4});
+    if (!bContent4)
+        $('html,body').animate({scrollTop: $("#content4").offset().top},300);
+    
+    e.preventDefault();
 });

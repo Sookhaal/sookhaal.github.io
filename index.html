@@ -4,6 +4,7 @@
         <meta charset="utf-8"/>
         <title>AUDIOmorph</title>
         <link href="//fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/audioplayer.css" />
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -16,28 +17,72 @@
                 <div class="content">
                     <div class="logo"></div>
                     
-                    <a href="#" class="toggle1"> <div class="listen"></div> </a>
+                    <!-- Lecteur //-->
+                    <a href="#" id="toggle1" class="toggle"> <h1>Ecouter</h1> </a>
                     <div id="content1" class="player">
                         <div class="player_info"><p><b>Dying Flag</b> - Painful Revenge</p></div>
-                        <audio preload="auto" controls>
+                        <audio preload="none" controls>
                             <source src="res/PainfulExtrait1.wav" />
                             <source src="res/PainfulExtrait1.ogg" />
                             <source src="res/PainfulExtrait1.mp3" />
-                        </audio></div>
+                        </audio>
+                    </div>
                     
-                    <a href="#" class="toggle2"> <div class="info"></div> </a>
+                    
+                    <!-- S'informer //-->
+                    <a href="#" id="toggle2" class="toggle"> <h1>S'informer</h1> </a>
                     <div id="content2" class="content_text">
                         <p>Afin d'aider les invidivus/groupes ayant un budget restreint nous vous proposons des services d'enregistrement, mixage et mastering à des prix plus abordables.</p>
-                        <p></p></div>
+                        <p>Services disponibles:</p>
+                        <li>Enregistrement</li>
+                        <li>Mixage</li>
+                        <li>Mastering</li>
+                        <li>Accueil d'une ou plusieurs personnes pour la journée (grand parking disponible, gratuit)</li>
+                    </div>
                     
-                    <a href="#" class="toggle3"> <div class="contact"></div> </a>
+                    <!-- Tarifs //-->
+                    <a href="#" id="toggle3" class="toggle"> <h1>Tarifs</h1> </a>
                     <div id="content3" class="content_text">
-                        <p>Contactez nous par mail à l'adresse: <a href="mailto:***">*****</a></p></div>
+                        <li>Enregistrement: 
+                            <ul>- Moins de 3 heures 30€/h</ul>
+                            <ul>- Entre 3 et 6 heures 25€/h</ul>
+                            <ul>- Plus de 6 heures 20€/h</ul>
+                            <h2>Tarifs pour la journée.</h2>
+                        </li>
+                        
+                        <li>Mixage: relatif à la durée et au nombre de pistes, entre autre. Contactez nous pour obtenir plus d'informations.</li>
+                        <h2>50% de la somme devra être payé d'avance.</h2>
+                        
+                        <li>Mastering:
+                            <ul>- Essai moins de 3 minutes 25€</ul>
+                            <h2>Si suite à cet essai vous souhaitez prendre un mastering complet, la somme sera déduite.</h2>
+                            <ul>- Moins de 20 minutes 100€</ul>
+                            <ul>- Entre 20 et 30 minutes 125€</ul>
+                            <ul>- Entre 30 et 40 minutes 150€</ul>
+                            <ul>- Entre 40 et 50 minutes 175€</ul>
+                            <ul>- Entre 50 et 60 minutes 200€</ul>
+                            <ul>- Plus de 60 minutes 225€</ul>
+                        </li>
+                        
+                        <h3>Exemples:</h3>
+                        <p>2 heures d'enregistrement une fois par semaine pendant 5 semaines:</p>
+                        <ul>2 heures = 30*2 = 60€ par journée</ul>
+                        <ul>Sur 5 Semaines = 60*5 = 300€</ul>
+                        
+                        <p>Essai mastering + album 45 minutes:</p>
+                        <ul>Essai = 25€</ul>
+                        <ul>45 minutes = 175 - 25 = 150€</ul>
+                    </div>
+                    
+                    <!-- Contacter //-->
+                    <a href="#" id="toggle4" class="toggle"> <h1>Contacter</h1> </a>
+                    <div id="content4" class="content_text">
+                        <p>Contactez nous par mail: <a href="mailto:**********">**********</a></p></div>
                 </div>
             </div>
             <div id="r" class="right"></div> 
         </div>
         <script type="text/javascript" src="js/script.js"></script>
-        <script type="text/javascript">preload("css/img/c_hover.png, css/img/l_hover.png, css/img/i_hover.png, css/img/logo_hover.png")</script>
+        <script type="text/javascript">preload("css/img/logo_hover.png")</script>
     </body>
 </html>
