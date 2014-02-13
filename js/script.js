@@ -24,11 +24,7 @@ $(function () {
 
     if (MOBILE) {
         $(".left, .right").hide();
-        /*$("#center").css({
-            position: "absolute"
-        });*/
         $(".center").animate({width: "100%"}, 0, function () {});
-        /*$(".center").center();*/
     }
 });
 
@@ -43,7 +39,7 @@ $("#toggle1").click(function (e) {
         marginValue = 50;
     } else if (FIREFOX){
 
-    } else {
+    } else if (!MOBILE){
         widthValue = 500;
         marginValue = 30;
     }
