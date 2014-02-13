@@ -1,11 +1,11 @@
 body {
     background: #0d151a;
     height: 100%;
-    margin: auto
+    margin: auto;
 }
 
 html {
-    height: 100%
+    height: 100%;
 }
 
 .container {
@@ -13,7 +13,7 @@ html {
     width: 100%;
     height: 100%;
     display: table;
-    overflow-y: auto
+    overflow-y: auto;
 }
 
 .left {
@@ -23,14 +23,14 @@ html {
     background-repeat: repeat-y;
     display: table-cell;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
 .center {
-    color: white;
+    color: red;
     display: table-cell;
     width: 500px;
-    height: 100%
+    height: 100%;
 }
 
 .right {
@@ -40,13 +40,13 @@ html {
     background-repeat: repeat-y;
     display: table-cell;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
 .content {
     float: left;
     width: inherit;
-    height: inherit
+    height: inherit;
 }
 
 .logo {
@@ -54,12 +54,12 @@ html {
     margin-top: 100px;
     background: url(img/logo_idle.png) center no-repeat;
     width: 100%;
-    height: 100px
+    height: 100px;
 }
 
 .logo:hover {
     background-image: url(img/logo_hover.png)
-}
+        }
 
 .content_text {
     overflow: hidden;
@@ -67,18 +67,18 @@ html {
     font-family: "Lato";
     font-size: 1.5em;
     color: #d5dee6;
-    text-align: justify
+    text-align: justify;
 }
 
 a {
     color: inherit;
-    text-decoration: none;
-    display: block
+    text-decoration:none;
+    display: block;
 }
 
 .player {
     padding-left: 50px;
-    padding-right: 50px
+    padding-right: 50px;
 }
 
 .player_info {
@@ -86,11 +86,11 @@ a {
     font-family: "Lato";
     font-size: 1.5em;
     color: #d1d8de;
-    text-align: justify
+    text-align: justify;
 }
 
 ul {
-    margin: auto
+    margin: auto;
 }
 
 h1 {
@@ -99,22 +99,22 @@ h1 {
     font-weight: 100;
     text-align: center;
     color: #02aee1;
-    margin: 10px 0 0 0
+    margin: 10px 0 0 0;
 }
 
-h1:hover {
-    text-shadow: 0 0 15px #226984
+a:hover, a.hovered {
+    text-shadow: 0 0 15px #226984;
 }
 
 h2 {
     margin: auto;
     font-size: 20px;
-    color: #666
+    color: #666;
 }
 
 p {
     margin-bottom: auto;
-    margin-top: 15px
+    margin-top: 15px;
 }
 
 h3 {
@@ -122,9 +122,9 @@ h3 {
     margin-top: 15px;
     font-family: "Lato";
     font-size: 1.5em;
-    color: #c6d3d8
+    color: #c6d3d8;
 }
 
 .toggle {
-    border-bottom: solid 1px #0cf
+    border-bottom: solid 1px #0cf;
 }
