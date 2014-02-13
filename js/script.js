@@ -34,19 +34,19 @@ $("#toggle1").click(function (e) {
 
     $("#content1").slideToggle(300, function () {bContent1 = !bContent1});
 
-    if (!bContent1 && !FIREFOX && !MOBILE) {
+    if (!bContent1 && !MOBILE) {
         widthValue = 900;
         marginValue = 50;
-    } else if (FIREFOX){
-
     } else if (!MOBILE){
         widthValue = 500;
         marginValue = 30;
     }
 
-    $(".center").animate({width: widthValue}, 300, function () {
-        widthValue = 500;
-    });
+    if (!MOBILE){
+        $(".center").animate({width: widthValue}, 300, function () {
+            widthValue = 500;
+        });
+    }
 
     $(".content_text").animate({marginRight: marginValue, marginLeft: marginValue}, 300, function () { marginValue = 30; });
 
