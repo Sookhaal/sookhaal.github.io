@@ -10,23 +10,14 @@ jQuery.fn.center = function () {
     return this;
 }
 
-function preload(images) {
-    if (document.images) {
-        var i = 0;
-        var imageArray = new Array();
-        imageArray = images.split(',');
-        var imageObj = new Image();
-        for(i=0; i<=imageArray.length-1; i++) {
-            imageObj.src=imageArray[i];
-        }
-    }
-}
-
 $("#content1, #content2, #content3, #content4").hide();
 
 $(function () {
     "use strict";
-    $('audio').audioPlayer();
+    $("#content2").load("info.html");
+    $("#content3").load("prices.html");
+    $("#content4").load("contact.html");
+    $("audio").audioPlayer();
 
     FIREFOX = /Firefox/i.test(navigator.userAgent);
     MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

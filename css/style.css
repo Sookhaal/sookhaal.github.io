@@ -128,3 +128,11 @@ h3 {
 .toggle {
     border-bottom: solid 1px #0cf;
 }
+.preload {
+    position: absolute;
+    overflow: hidden;
+    left: -9999px;
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+}
