@@ -22,16 +22,14 @@ $(function () {
     FIREFOX = /Firefox/i.test(navigator.userAgent);
     MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    /*if (FIREFOX) {
+    if (MOBILE) {
         $(".left, .right").hide();
-        $("#center").css({
+        /*$("#center").css({
             position: "absolute"
-        });
-
-        console.log("Test");
-
-        $(".center").center();
-    }*/
+        });*/
+        $(".center").animate({width: "100%"}, 0, function () {});
+        /*$(".center").center();*/
+    }
 });
 
 $("#toggle1").click(function (e) {
