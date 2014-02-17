@@ -40,6 +40,7 @@ $(function(){
         useSeed();
         checkEmpty();
     });
+    $("#testid").text(tones[11]);
 
     setupSeed();
     //$("#0").css('color', 'red');
@@ -55,7 +56,6 @@ function checkEmpty(){
             $("#"+i).text("TEST");
         }
     }
-    $("#testid").text(tones[11]);
 }
 
 function setupCircle(){
