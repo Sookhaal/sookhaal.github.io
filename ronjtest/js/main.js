@@ -50,12 +50,12 @@ $(window).resize(function () {
 });
 
 function checkEmpty(){
-    for (var i = 0; i < 12; i++){
+    for (var i = 0; i < 13; i++){
         if ($("#"+i).text() == ""){
             $("#"+i).text("TEST");
         }
     }
-    $("#testid").text(tones[11]);
+    $("#testid").text(tones.length);
 }
 
 function setupCircle(){
@@ -72,9 +72,9 @@ function setupCircle(){
 }
 
 function randomCircle(){
-    $("#seed").val("");
+    //$("#seed").val("");
     shuffle(tempTones);
-    for (var i = 0; i < 13; i++) {
+    for (var i = 0; i < 12; i++) {
         $("#"+i).text(tempTones[i]);
         setupIndex(i);
     }
