@@ -67,7 +67,7 @@ $(window).resize(function () {
 function checkEmpty(){
     for (var i = 0; i < 13; i++){
         if ($("#"+i).text() == "B"){
-            $("#"+i).text("B");
+            $("#"+i).text("THIS");
         }
     }
 }
@@ -88,7 +88,7 @@ function setupCircle(){
 function randomCircle(){
     //$("#seed").val("");
     shuffle(tempTones);
-    for (var i = 0; i < 13; i++) {
+    for (var i = 0; i < 12; i++) {
         $("#"+i).text(""+tempTones[i]);
         setupIndex(i);
     }
@@ -97,7 +97,7 @@ function randomCircle(){
 
 function useSeed(){
     toneIndex = $("#seed").val().split(" ");
-    for (var i = 0; i < 13; i++) {
+    for (var i = 0; i < 12; i++) {
         $("#"+i).text(""+tones[toneIndex[i]]);
     }
 }
