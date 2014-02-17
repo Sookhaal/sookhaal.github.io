@@ -20,6 +20,19 @@ var tempTones = new Array();
 var toneIndex = new Array();
 
 $(function(){
+    tones = new Array();
+tones[0] = "C";
+tones[1] = "C#";
+tones[2] = "D";
+tones[3] = "D#";
+tones[4] = "E";
+tones[5] = "F";
+tones[6] = "F#";
+tones[7] = "G";
+tones[8] = "G#";
+tones[9] = "A";
+tones[10] = "A#";
+tones[11] = "B";
     for (var i = 0; i < 12; i++) {
         elems[i].id = i;
         setupCircle();
@@ -41,7 +54,7 @@ $(function(){
         checkEmpty();
     });
     tones[11] = "B";
-    $("#testid").text(tones[11]);
+    $("#testid").text("11: "+tones[11]);
 
     setupSeed();
     //$("#0").css('color', 'red');
