@@ -40,6 +40,7 @@ $(function(){
         useSeed();
         checkEmpty();
     });
+    tones[11] = "B";
     $("#testid").text(tones[11]);
 
     setupSeed();
