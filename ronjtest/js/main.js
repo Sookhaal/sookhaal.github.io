@@ -53,8 +53,7 @@ tones[11] = "B";
         useSeed();
         checkEmpty();
     });
-    tones[11] = "B";
-    $("#testid").text(""+tones[11]);
+    $("#testid").text("  "+tones[11]+"  ");
 
     setupSeed();
     //$("#0").css('color', 'red');
@@ -66,8 +65,8 @@ $(window).resize(function () {
 
 function checkEmpty(){
     for (var i = 0; i < 13; i++){
-        if ($("#"+i).text() == ""){
-            $("#"+i).text("TEST");
+        if ($("#"+i).text() == "B"){
+            $("#"+i).text("THIS");
         }
     }
 }
