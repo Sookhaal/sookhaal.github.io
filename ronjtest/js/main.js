@@ -55,6 +55,7 @@ function checkEmpty(){
             $("#"+i).text("TEST");
         }
     }
+    $("#testid").text(tones[11]);
 }
 
 function setupCircle(){
@@ -73,7 +74,7 @@ function setupCircle(){
 function randomCircle(){
     $("#seed").val("");
     shuffle(tempTones);
-    for (var i = 0; i < 12; i++) {
+    for (var i = 0; i < 13; i++) {
         $("#"+i).text(tempTones[i]);
         setupIndex(i);
     }
