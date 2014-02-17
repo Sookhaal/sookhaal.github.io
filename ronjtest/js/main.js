@@ -20,7 +20,7 @@ var tempTones = new Array();
 var toneIndex = new Array();
 
 $(function(){
-    for (var i = 0; i < elems.length; i++) {
+    for (var i = 0; i < 12; i++) {
         elems[i].id = i;
         setupCircle();
         $("#"+i).text(tones[i]);
@@ -59,7 +59,7 @@ function checkEmpty(){
 
 function setupCircle(){
     angle = -1;
-    for (var i = 0; i < elems.length; i++) {
+    for (var i = 0; i < 12; i++) {
         elem = elems[i];
         x = 150 * Math.cos(angle) + 155 + window.innerWidth/2 - 370/2;
         y = 150 * Math.sin(angle) + 250;
@@ -73,7 +73,7 @@ function setupCircle(){
 function randomCircle(){
     $("#seed").val("");
     shuffle(tempTones);
-    for (var i = 0; i < elems.length; i++) {
+    for (var i = 0; i < 12; i++) {
         $("#"+i).text(tempTones[i]);
         setupIndex(i);
     }
@@ -82,13 +82,13 @@ function randomCircle(){
 
 function useSeed(){
     toneIndex = $("#seed").val().split(" ");
-    for (var i = 0; i < elems.length; i++) {
+    for (var i = 0; i < 12; i++) {
         $("#"+i).text(tones[toneIndex[i]]);
     }
 }
 
 function setupIndex(indexPosition){
-    for (var i = 0; i < elems.length; i++){
+    for (var i = 0; i < 12; i++){
         if (tempTones[indexPosition] == tones[i]){
             toneIndex[indexPosition] = i;
         }
