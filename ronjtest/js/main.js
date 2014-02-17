@@ -1,7 +1,7 @@
 var elems = $("#circle").children("h3");
 var tempText = "";
 var increase = Math.PI * 2 / 12;
-var x = 0, y = 0, angle = -1, elem;
+var x = 0, y = 0, angle = 0, elem;
 var tones = new Array();
 tones[0] = "C";
 tones[1] = "C#";
