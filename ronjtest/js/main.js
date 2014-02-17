@@ -55,7 +55,7 @@ function checkEmpty(){
             $("#"+i).text("TEST");
         }
     }
-    $("#testid").text(tones.length);
+    $("#testid").text("Length: "+tones.length+" 10: "+tones[10]+" 11:"+tones[11]);
 }
 
 function setupCircle(){
