@@ -36,7 +36,7 @@ tones[11] = "B";
     for (var i = 0; i < 12; i++) {
         elems[i].id = i;
         setupCircle();
-        $("#"+i).text(tones[i]);
+        $("#"+i).text(""+tones[i]);
         tempTones[i] = tones[i];
         toneIndex[i] = tones[i];
         setupIndex(i);
@@ -54,7 +54,7 @@ tones[11] = "B";
         checkEmpty();
     });
     tones[11] = "B";
-    $("#testid").text("11: "+tones[11]);
+    $("#testid").text(""+tones[11]);
 
     setupSeed();
     //$("#0").css('color', 'red');
@@ -89,7 +89,7 @@ function randomCircle(){
     //$("#seed").val("");
     shuffle(tempTones);
     for (var i = 0; i < 12; i++) {
-        $("#"+i).text(tempTones[i]);
+        $("#"+i).text(""+tempTones[i]);
         setupIndex(i);
     }
     setupSeed();
@@ -98,7 +98,7 @@ function randomCircle(){
 function useSeed(){
     toneIndex = $("#seed").val().split(" ");
     for (var i = 0; i < 12; i++) {
-        $("#"+i).text(tones[toneIndex[i]]);
+        $("#"+i).text(""+tones[toneIndex[i]]);
     }
 }
 
