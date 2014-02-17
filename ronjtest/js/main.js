@@ -56,7 +56,7 @@ $(function(){
     $("#testid").text(tones[11]+"b");
 
     setupSeed();
-    randomCircle();
+    //randomCircle();
     //$("#0").css('color', 'red');
 });
 
@@ -67,13 +67,13 @@ $(window).resize(function () {
 function checkEmpty(){
     for (var i = 0; i < 13; i++){
         if ($("#"+i).text() == "B"){
-            $("#"+i).text("B ");
+            $("#"+i).text(" B ");
         }
     }
 }
 
 function setupCircle(){
-    angle = -1;
+    //angle = -1;
     for (var i = 0; i < 12; i++) {
         elem = elems[i];
         x = 150 * Math.cos(angle) + 155 + window.innerWidth/2 - 370/2;
