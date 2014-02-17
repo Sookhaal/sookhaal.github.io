@@ -67,7 +67,7 @@ $(window).resize(function () {
 function checkEmpty(){
     for (var i = 0; i < 13; i++){
         if ($("#"+i).text() == "B"){
-            $("#"+i).text("Bb");
+            $("#"+i).text("B ");
         }
     }
 }
