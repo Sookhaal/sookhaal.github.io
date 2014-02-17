@@ -32,11 +32,13 @@ $(function(){
     $("#randomize").button().click(function(event){
         event.preventDefault();
         randomCircle();
+        checkEmpty();
     });
 
     $("#useSeed").button().click(function(event){
         event.preventDefault();
         useSeed();
+        checkEmpty();
     });
 
     setupSeed();
@@ -46,6 +48,14 @@ $(function(){
 $(window).resize(function () {
     setupCircle();
 });
+
+function checkEmpty(){
+    for (var i = 0; i < 12; i++){
+        if (("#"+i).text() == ""){
+            $("#"+i).text("TEST");
+        }
+    }
+}
 
 function setupCircle(){
     angle = -1;
