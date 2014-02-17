@@ -51,7 +51,7 @@ $(window).resize(function () {
 
 function checkEmpty(){
     for (var i = 0; i < 12; i++){
-        if (("#"+i).text() == ""){
+        if (!("#"+i).text()){
             $("#"+i).text("TEST");
         }
     }
