@@ -14,7 +14,7 @@ tones[7] = "G";
 tones[8] = "G#";
 tones[9] = "A";
 tones[10] = "A#";
-tones[11] = "B";
+tones[11] = " B ";
 
 var tempTones = new Array();
 var toneIndex = new Array();
@@ -32,37 +32,54 @@ $(function(){
     $("#randomize").button().click(function(event){
         event.preventDefault();
         randomCircle();
-        bFix();
+        //bFix();
     });
 
     $("#useSeed").button().click(function(event){
         event.preventDefault();
         useSeed();
-        bFix();
+        //bFix();
     });
 
     setupSeed();
-    bFix();
+    //bFix();
     //$("#0").css('color', 'red');
 });
 
 $(window).resize(function () {
     setupCircle();
+    //$("#seed").val(window.innerWidth);
 });
 
-function bFix(){
+/*function bFix(){
     for (var i = 0; i < 12; i++){
         if ($("#"+i).text() == "B"){
             $("#"+i).text(" B ");
         }
     }
-}
+}*/
 
 function setupCircle(){
     for (var i = 0; i < 12; i++) {
         elem = elems[i];
-        x = 240 * Math.cos(angle) + 160 + window.innerWidth/2 - 450/2;
-        y = 240 * Math.sin(angle) + 480;
+        if (window.innerWidth >= 606){
+            x = 240 * Math.cos(angle) + 165 + window.innerWidth/2 - 450/2;
+        } else{
+            x = Math.pow(window.innerWidth/2.55,0.99) * Math.cos(angle) + (1/2.55*window.innerWidth);
+        }
+        if (window.innerWidth >= 726){
+            y = 240 * Math.sin(angle) + 320;
+
+        } else if (window.innerWidth < 606){
+            y = Math.pow(window.innerWidth/2.55,0.99) * Math.sin(angle)+7/20*window.innerWidth + -1/10*window.innerWidth + 228;
+            elem.style.fontSize = 1/101*window.innerWidth-1+"em";
+        } else {
+            y = 240 * Math.sin(angle) + 390;
+            elem.style.width = "1.5em";
+            elem.style.fontSize = "5em";
+        }
+        elem.style.height = elem.style.width;
+        elem.style.lineHeight = elem.style.width;
         elem.style.position = 'absolute';
         elem.style.left = x + 'px';
         elem.style.top = y + 'px';

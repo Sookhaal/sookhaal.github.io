@@ -1,6 +1,6 @@
 body{
     background: #181F26;
-    color: white;
+    color: #eee;
     margin: 0 auto;
     font-family: source-sans-pro, sans-serif;
 }
@@ -12,7 +12,7 @@ h3 {
     line-height: 1.5em;
     text-align: center;
     font-size: 5em;
-    background: black;
+    background: #13171c;
 }
 
 #controls {
@@ -32,5 +32,23 @@ input {
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 1em;
+    font-size: .9em;
+}
+
+a {
+    text-decoration: none;
+}
+
+#groupbuttons {
+    max-width: 465px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.button {
+    max-width: 75px;
+    max-height: 75px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    float: left;
 }
