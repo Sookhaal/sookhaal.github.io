@@ -7,19 +7,19 @@ body{
 
 h3 {
     border-radius: 50%;
-    width: 2em;
-    height: 2em;
-    line-height: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
     background: black;
 }
 
 #controls {
     margin: 0 auto;
-    width: 370px;
+    width: 450px;
     text-align: center;
-    padding-top: 2em;
+    padding-top: 8em;
     display: table;
     font-size: 1em;
 }
@@ -30,5 +30,5 @@ input {
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 2em;
+    font-size: 2.5em;
 }

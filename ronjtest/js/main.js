@@ -1,7 +1,7 @@
 var elems = $("#circle").children("h3");
 var tempText = "";
 var increase = Math.PI * 2 / 12;
-var x = 0, y = 0, angle = 0, elem;
+var x = 0, y = 0, angle = -1, elem;
 var tones = new Array();
 tones[0] = "C";
 tones[1] = "C#";
@@ -59,11 +59,10 @@ function bFix(){
 }
 
 function setupCircle(){
-    angle = -1;
     for (var i = 0; i < 12; i++) {
         elem = elems[i];
         x = 150 * Math.cos(angle) + 155 + window.innerWidth/2 - 370/2;
-        y = 150 * Math.sin(angle) + 250;
+        y = 150 * Math.sin(angle) + 350;
         elem.style.position = 'absolute';
         elem.style.left = x + 'px';
         elem.style.top = y + 'px';
