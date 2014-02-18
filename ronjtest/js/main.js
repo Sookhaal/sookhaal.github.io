@@ -32,18 +32,17 @@ $(function(){
     $("#randomize").button().click(function(event){
         event.preventDefault();
         randomCircle();
-        checkEmpty();
+        bFix();
     });
 
     $("#useSeed").button().click(function(event){
         event.preventDefault();
         useSeed();
-        checkEmpty();
+        bFix();
     });
-    $("#testid").text(tones[11]+"b");
 
     setupSeed();
-    //randomCircle();
+    bFix();
     //$("#0").css('color', 'red');
 });
 
@@ -51,8 +50,8 @@ $(window).resize(function () {
     setupCircle();
 });
 
-function checkEmpty(){
-    for (var i = 0; i < 13; i++){
+function bFix(){
+    for (var i = 0; i < 12; i++){
         if ($("#"+i).text() == "B"){
             $("#"+i).text(" B ");
         }
@@ -73,7 +72,7 @@ function setupCircle(){
 }
 
 function randomCircle(){
-    //$("#seed").val("");
+    $("#seed").val("");
     shuffle(tempTones);
     for (var i = 0; i < 12; i++) {
         $("#"+i).text(""+tempTones[i]);
@@ -84,8 +83,12 @@ function randomCircle(){
 
 function useSeed(){
     toneIndex = $("#seed").val().split(" ");
-    for (var i = 0; i < 12; i++) {
-        $("#"+i).text(""+tones[toneIndex[i]]);
+    if (toneIndex.length == 12 && toneIndex[11] != ""){
+        for (var i = 0; i < 12; i++) {
+            $("#"+i).text(""+tones[toneIndex[i]]);
+        }
+    } else{
+        $("#seed").val("WRONG SEED");
     }
 }
 
