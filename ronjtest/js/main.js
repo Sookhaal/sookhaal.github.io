@@ -61,8 +61,8 @@ function bFix(){
 function setupCircle(){
     for (var i = 0; i < 12; i++) {
         elem = elems[i];
-        x = 150 * Math.cos(angle) + 155 + window.innerWidth/2 - 370/2;
-        y = 150 * Math.sin(angle) + 350;
+        x = 240 * Math.cos(angle) + 160 + window.innerWidth/2 - 450/2;
+        y = 240 * Math.sin(angle) + 480;
         elem.style.position = 'absolute';
         elem.style.left = x + 'px';
         elem.style.top = y + 'px';

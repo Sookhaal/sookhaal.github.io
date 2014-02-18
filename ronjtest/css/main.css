@@ -1,7 +1,7 @@
 body{
     background: #181F26;
     color: white;
-    margin: auto;
+    margin: 0 auto;
     font-family: source-sans-pro, sans-serif;
 }
 
@@ -11,24 +11,26 @@ h3 {
     height: 1.5em;
     line-height: 1.5em;
     text-align: center;
-    font-size: 3em;
+    font-size: 5em;
     background: black;
 }
 
 #controls {
     margin: 0 auto;
-    width: 450px;
+    width: 100%;
     text-align: center;
-    padding-top: 8em;
     display: table;
-    font-size: 1em;
+    font-size: 3em;
 }
 
 input {
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #232D38;
-    border: 3px solid black;
+    border: none;
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 2.5em;
+    font-size: 1em;
 }
