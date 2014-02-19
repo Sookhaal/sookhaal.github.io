@@ -66,13 +66,13 @@ $("#b31").click(function (e){
 $("#b32").click(function (e){
     colorize(1,3,"f646fd", "000");
     colorize(4,6,"05cdff", "000");
-    colorize(8,9,"ffb005", "000");
+    colorize(7,9,"ffb005", "000");
     colorize(10,12,"c1ff05", "000");
 });
 $("#b33").click(function (e){
     colorize(2,4,"f646fd", "000");
     colorize(5,7,"05cdff", "000");
-    colorize(7,10,"ffb005", "000");
+    colorize(8,10,"ffb005", "000");
     colorize(11,1,"c1ff05", "000");
 })
 
