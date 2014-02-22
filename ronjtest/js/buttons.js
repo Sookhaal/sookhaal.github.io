@@ -78,7 +78,7 @@ $("#b33").click(function (e){
 
 function positionDiv(){
     $("#groupbuttons").css({
-        "marginTop":$("#5").offset().top - $("#11").offset().top +$("#5").width()+20+ "px"
+        "marginTop":$("#5").offset().top - $("#11").offset().top +$("#5").width()+80+ "px"
     });
     if (window.innerWidth>=450){
         buttonSize = 75;

@@ -1,8 +1,23 @@
 var elems = $("#circle").children("h3");
 var tempText = "";
 var increase = Math.PI * 2 / 12;
-var x = 0, y = 0, angle = -1, elem;
+var x = 0, y = 0, angle = -3*increase, elem;
 var tones = new Array();
+tones[0] = "A";
+tones[1] = "A#";
+tones[2] = " B ";
+tones[3] = "C";
+tones[4] = "C#";
+tones[5] = "D";
+tones[6] = "D#";
+tones[7] = "E";
+tones[8] = "F";
+tones[9] = "F#";
+tones[10] = "G";
+tones[11] = "G#";
+/*
+tones[0] = "A#";
+tones[1] = " B ";
 tones[2] = "C";
 tones[3] = "C#";
 tones[4] = "D";
@@ -12,9 +27,7 @@ tones[7] = "F";
 tones[8] = "F#";
 tones[9] = "G";
 tones[10] = "G#";
-tones[11] = "A";
-tones[0] = "A#";
-tones[1] = " B ";
+tones[11] = "A";*/
 
 var tempTones = new Array();
 var toneIndex = new Array();
