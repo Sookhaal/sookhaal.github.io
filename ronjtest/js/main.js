@@ -102,13 +102,13 @@ function setupCircle(){
             x = Math.pow($(window).width()/2.55,0.99) * Math.cos(angle) + (1/2.55*$(window).width());
         }
         if ($(window).width() >= 726){
-            y = 240 * Math.sin(angle) + 320;
+            y = 240 * Math.sin(angle) + 280;
 
         } else if ($(window).width() < 606){
-            y = Math.pow($(window).width()/2.55,0.99) * Math.sin(angle)+7/20*$(window).width() + -1/10*$(window).width() + 228;
+            y = Math.pow($(window).width()/2.55,0.99) * Math.sin(angle)+7/20*$(window).width() + -1/10*$(window).width() + 180;
             elem.style.fontSize = 1/101*$(window).width()-1+"em";
         } else {
-            y = 240 * Math.sin(angle) + 390;
+            y = 240 * Math.sin(angle) + 340;
             elem.style.width = "1.5em";
             elem.style.fontSize = "5em";
         }
