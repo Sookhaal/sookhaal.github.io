@@ -47,14 +47,14 @@ $(function(){
     });
 
     setupSeed();
-    $("#seed").val($(window).width());
+    //$("#seed").val($(window).width());
     //bFix();
     //$("#0").css('color', 'red');
 });
 
 $(window).resize(function () {
     setupCircle();
-    $("#seed").val($(window).width());
+    //$("#seed").val($(window).width());
 });
 
 /*function bFix(){
