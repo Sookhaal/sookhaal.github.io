@@ -32,11 +32,13 @@ input {
     color: white;
     text-align: center;
     width: 100%;
-    font-size: .9em;
+    font-size: .7em;
+    height: 55px;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 #groupbuttons {
@@ -52,4 +54,28 @@ a {
     -webkit-background-size: cover;
     background-size: cover;
     float: left;
+}
+
+.indexbuttons {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    display: table;
+    font-size: 3em;
+    overflow-x: hidden;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.indexbutton {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#goback {
+    margin-top: 10px;
+    text-align: center;
+    float: left;
+    font-size: 5em;
+    min-width: 100%;
 }

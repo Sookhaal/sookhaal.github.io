@@ -41,14 +41,20 @@ $(function(){
         //bFix();
     });
 
+    $("#goback").button().click(function(event){
+        event.preventDefault();
+        $("body").load("back.html");
+    });
+
     setupSeed();
+    $("#seed").val($(window).width());
     //bFix();
     //$("#0").css('color', 'red');
 });
 
 $(window).resize(function () {
     setupCircle();
-    //$("#seed").val(window.innerWidth);
+    $("#seed").val($(window).width());
 });
 
 /*function bFix(){
@@ -62,17 +68,17 @@ $(window).resize(function () {
 /*function setupCircle(){
     for (var i = 0; i < 12; i++) {
         elem = elems[i];
-        if (window.innerWidth >= 606){
-            x = 240 * Math.cos(angle) + 165 + window.innerWidth/2 - 450/2;
+        if ($(window).width() >= 606){
+            x = 240 * Math.cos(angle) + 165 + $(window).width()/2 - 450/2;
         } else{
-            x = Math.pow(window.innerWidth/2.55,0.99) * Math.cos(angle) + (1/2.55*window.innerWidth);
+            x = Math.pow($(window).width()/2.55,0.99) * Math.cos(angle) + (1/2.55*$(window).width());
         }
-        if (window.innerWidth >= 726){
+        if ($(window).width() >= 726){
             y = 240 * Math.sin(angle) + 320;
 
-        } else if (window.innerWidth < 606){
-            y = Math.pow(window.innerWidth/2.55,0.99) * Math.sin(angle)+7/20*window.innerWidth + -1/10*window.innerWidth + 228;
-            elem.style.fontSize = 1/101*window.innerWidth-1+"em";
+        } else if ($(window).width() < 606){
+            y = Math.pow($(window).width()/2.55,0.99) * Math.sin(angle)+7/20*$(window).width() + -1/10*$(window).width() + 228;
+            elem.style.fontSize = 1/101*$(window).width()-1+"em";
         } else {
             y = 240 * Math.sin(angle) + 390;
             elem.style.width = "1.5em";
@@ -90,17 +96,17 @@ $(window).resize(function () {
 function setupCircle(){
     for (var i = 0; i < 12; i++) {
         elem = elems[i];
-        if (window.innerWidth >= 606){
-            x = 240 * Math.cos(angle) + 165 + window.innerWidth/2 - 450/2;
+        if ($(window).width() >= 606){
+            x = 240 * Math.cos(angle) + 165 + $(window).width()/2 - 450/2;
         } else{
-            x = Math.pow(window.innerWidth/2.55,0.99) * Math.cos(angle) + (1/2.55*window.innerWidth);
+            x = Math.pow($(window).width()/2.55,0.99) * Math.cos(angle) + (1/2.55*$(window).width());
         }
-        if (window.innerWidth >= 726){
+        if ($(window).width() >= 726){
             y = 240 * Math.sin(angle) + 320;
 
-        } else if (window.innerWidth < 606){
-            y = Math.pow(window.innerWidth/2.55,0.99) * Math.sin(angle)+7/20*window.innerWidth + -1/10*window.innerWidth + 228;
-            elem.style.fontSize = 1/101*window.innerWidth-1+"em";
+        } else if ($(window).width() < 606){
+            y = Math.pow($(window).width()/2.55,0.99) * Math.sin(angle)+7/20*$(window).width() + -1/10*$(window).width() + 228;
+            elem.style.fontSize = 1/101*$(window).width()-1+"em";
         } else {
             y = 240 * Math.sin(angle) + 390;
             elem.style.width = "1.5em";
