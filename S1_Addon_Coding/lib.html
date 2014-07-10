@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="scripts/shCore.js"></script>
+        <script type="text/javascript" src="scripts/shBrushCSharp.js"></script>
+        <link href="css/shCoreRDark.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeRDark.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <title>Studio One - Addon Programming</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="post_content">
+                <h1>Project Setup</h1>
+                <p>Add a reference to the library.</p>
+                <h5>Right click your project > <b>Add Reference...</b></h5>
+                <img src="img/lib/0.jpg">
+                <h5>Click on <b>Browse...</b></h5>
+                <img src="img/lib/1.jpg">
+                <h5>Select the <b>dll</b> & click <b>Add</b>.</h5>
+                <img src="img/lib/2.jpg">
+                <h5>Click <b>OK</b>.</h5>
+                <img src="img/lib/3.jpg">
+                <p>Now, everytime you compile your project the library (.dll) will be copied next to the executable.<br>
+                    You should be able to import it & use it.</p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+using Nel_S1Library;
+using Nel_S1Library.ImageSearch;
+
+//.....
+
+private S1Controller s1Controller = new S1Controller();
+private ImageSearch img = new ImageSearch();
+                    </pre>
+                </div>
+                <blockquote>You can catch <b>exceptions</b> to give feedback to the user.</blockquote>
+
+                <h1>'<i>Attaching</i>' to Studio One</h1>
+                <p><code>GetS1()</code></p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+private S1Controller s1Controller = new S1Controller();
+private ImageSearch img = new ImageSearch();
+private IntPtr s1 = IntPtr.Zero;
+
+try
+{
+    s1 = s1Controller.GetS1();
+}
+
+catch (Exception ex)
+{
+    MessageBox.Show("Error: " + ex.Message);        //Outputs useful feedback on errors
+}
+                    </pre>
+                </div>
+
+                <h1>ImageSearching</h1>
+                <p><code>searchBitmap(imageToFind[imgNumber], tolerance)</code><br>
+                You can loop through<code>imageToFind.Count()</code>if you want.</p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+private S1Controller s1Controller = new S1Controller();
+private ImageSearch img = new ImageSearch();
+private IntPtr s1 = IntPtr.Zero;
+private List&lt;Bitmap> smallBmp;                       //Pictures to find
+
+try
+{
+    s1 = s1Controller.GetS1();
+    img.CaptureApplication(s1);                     //Give a full picture of S1 to searchBitmap()
+    
+    smallBmp.Add(new Bitmap("picture1.bmp"));       //First image to find
+    smallBmp.Add(new Bitmap("picture2.bmp"));       //Second image to find
+    for (int loop = 0; loop &lt; smallBmp.Count(); loop++)
+    {
+        location = img.searchBitmap(smallBmp[loop], 0);
+    }
+}
+
+catch (Exception ex)
+{
+    MessageBox.Show("Error: " + ex.Message);
+}
+                    </pre>
+                </div>
+                
+                <h1>Clicking</h1>
+                <p><code>LeftClick()</code><code>RightClick()</code><br>
+                There are multiple ways of clicking. The simplest one (only X & Y location needed) is shown below.</p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+private S1Controller s1Controller = new S1Controller();
+private ImageSearch img = new ImageSearch();
+private IntPtr s1 = IntPtr.Zero;
+private List&lt;Bitmap> smallBmp;
+private int offsetY = 47;                           //In case you need an offset
+
+try
+{
+    s1 = s1Controller.GetS1();
+    img.CaptureApplication(s1);
+    
+    smallBmp.Add(new Bitmap("picture1.bmp"));
+    smallBmp.Add(new Bitmap("picture2.bmp"));
+    for (int loop = 0; loop &lt; smallBmp.Count(); loop++)
+    {
+        location = img.searchBitmap(smallBmp[loop], 0);
+        for (int i = 0; i &lt; location.Count; i++)
+            s1Controller.LeftClick(location[i].X, location[i].Y - offsetY);
+    }
+}
+
+catch (Exception ex)
+{
+    MessageBox.Show("Error: " + ex.Message);
+}
+                    </pre>
+                </div>
+                
+                <h1>Full Code Example</h1>
+                <p>Toggles FX once you click on the button.</p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+using Nel_S1Library;
+using Nel_S1Library.ImageSearch;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Example
+{
+	public partial class Form1 : Form
+	{
+		public Form1()
+		{
+			InitializeComponent();
+			fxOff_B.Add(new Bitmap("img\\fxOff.bmp"));
+			fxOff_B.Add(new Bitmap("img\\fxOffSelected.bmp"));
+			fxOff_B.Add(new Bitmap("img\\fxOffFXChannel.bmp"));
+			fxOff_B.Add(new Bitmap("img\\fxOffPost.bmp"));
+			fxOff_B.Add(new Bitmap("img\\fxOffPostSelected.bmp"));
+			fxOn_B.Add(new Bitmap("img\\fxOn.bmp"));
+			fxOn_B.Add(new Bitmap("img\\fxOnSelected.bmp"));
+			fxOn_B.Add(new Bitmap("img\\fxOnFXChannel.bmp"));
+			fxOn_B.Add(new Bitmap("img\\fxOnPost.bmp"));
+			fxOn_B.Add(new Bitmap("img\\fxOnPostSelected.bmp"));
+		}
+
+		private S1Controller s1Controller = new S1Controller();
+		private ImageSearch img = new ImageSearch();
+		private IntPtr s1 = IntPtr.Zero;
+
+		private List&lt;Rectangle> location;
+		private bool fxOn = true;
+		private int offsetY = 47;
+		private List&lt;Bitmap> fxOff_B = new List&lt;Bitmap>();
+		private List&lt;Bitmap> fxOn_B = new List&lt;Bitmap>();
+
+		private void FXTurnOn()
+		{
+			for (int loop = 0; loop &lt; fxOff_B.Count(); loop++)
+			{
+				location = img.searchBitmap(fxOff_B[loop], 0);
+				for (int i = 0; i &lt; location.Count; i++)
+					s1Controller.LeftClick(location[i].X, location[i].Y - offsetY);
+			}
+			fxOn = true;
+		}
+
+		private void FXTurnOff()
+		{
+			for (int loop = 0; loop &lt; fxOn_B.Count(); loop++)
+			{
+				location = img.searchBitmap(fxOn_B[loop], 0);
+				for (int i = 0; i &lt; location.Count; i++)
+					s1Controller.LeftClick(location[i].X, location[i].Y - offsetY);
+			}
+			fxOn = false;
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				s1 = s1Controller.GetS1();
+				img.CaptureApplication(s1);
+				if (fxOn)
+					FXTurnOff();
+				else
+					FXTurnOn();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error: " + ex.Message);
+			}
+		}
+	}
+}
+                    </pre>
+                </div>
+                <blockquote>You may need to run your application in admin mode if it doesn't work!</blockquote>
+            </div>
+        </div>
+        <script type="text/javascript">SyntaxHighlighter.all()</script>
+        <style type="text/css">.syntaxhighlighter { overflow-y: hidden !important; }</style>
+    </body>
+</html>

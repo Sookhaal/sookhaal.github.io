@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="scripts/shCore.js"></script>
+        <script type="text/javascript" src="scripts/shBrushCSharp.js"></script>
+        <link href="css/shCoreRDark.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeRDark.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <title>Studio One - Addon Programming</title>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="post_content">
+                <h1>Getting started</h1>
+                <ol>
+                    <b><i>What you'll learn:</i></b>
+                    <li>How to create a new Project.</li>
+                    <li>How to use variables.</li>
+                    <li>How to use different UI elements.</li>
+                    <li>How to make a simple calculator.</li>
+                </ol>
+                <!--<blockquote>Why no Editor.target?</blockquote>-->
+                <br>
+                <h1>Create a new Project</h1>
+                <p>First, we need to create a new Project.</p>
+                <h5>Go to File > New > Project.</h5>
+                <img src="img/gettingstarted/1.jpg">
+                <h5>Select C# Windows Forms Application.</h5>
+                <img src="img/gettingstarted/2.jpg">
+                <h5>Enter a <b>Name</b> and a <b>Location</b>. We will use MyFirstApplication & Default Location. Hit <b>OK</b>.</h5>
+                <img src="img/gettingstarted/3.jpg">
+
+                <p>Once your Project is created, you should be in <b>Design</b> mode and see a <b>Form</b>. We will take a look at that later. For now, let's open our application's code.</p>
+                <h5>Extend Form1.cs & double click on <b>Form1</b>.</h5>
+                <img src="img/gettingstarted/4.jpg">
+                <p>Now you should see the code below.</p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MyFirstApplication
+{
+	public partial class Form1 : Form
+	{
+		public Form1()
+		{
+			InitializeComponent();
+		}
+	}
+}
+
+                    </pre>
+                </div>
+                <br>
+                <h1>Variables</h1>
+                <blockquote>If something is not explained and you don't understand it, you <b>should</b> search it on Google to get informations. <code>namespace</code><code>class</code><code>static</code> for example.</blockquote>
+                <p>A variable is a data which your application can read, modify & use. It can be something as simple as an <i>integer</i> (0, 1, 2), a <i>word</i> (or some text) or a <i>boolean</i> (<b>true</b> or <b>false</b>) or something as complex as an <i>image</i>, a <i>vector</i>, etc. You can even make lists of variables...</p>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+int myInt = 1;
+string myString = "My Text.";
+bool myBool = false;
+                    </pre>
+                </div>
+                <h5>Place them inside a <b>class</b>.</h5>
+                <div id="snippet">
+                    <pre class="brush: c-sharp">
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MyFirstApplication
+{
+	public partial class Form1 : Form
+	{
+		int myInt = 1;
+		string myString = "My Text.";
+		bool myBool = false;
+
+		public Form1()
+		{
+			InitializeComponent();
+		}
+	}
+}
+
+
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">SyntaxHighlighter.all()</script>
+        <style type="text/css">.syntaxhighlighter { overflow-y: hidden !important; }</style>
+    </body>
+</html>
