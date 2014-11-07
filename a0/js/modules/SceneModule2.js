@@ -28,8 +28,6 @@ SceneModule2 = function () {
     composer.addPass( glitchPass );
     glitchPass.triggerGlitch(10);
 
-    this.glitchPath = glitchPass;
-
     var light1 = new THREE.PointLight( 0x57c6d7, 5, 100 );
     light1.position.x = 90;
     light1.position.y = 50;
