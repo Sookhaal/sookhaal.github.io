@@ -48,7 +48,7 @@ SceneModule1 = function () {
     var group = new THREE.Object3D();
     scene.add( group );
 
-    var geometry = new THREE.IcosahedronGeometry( 7, 0 );
+    var geometry = new THREE.IcosahedronGeometry( 4, 0 );
     var material = new THREE.MeshLambertMaterial( {
         shading: THREE.FlatShading
     } );

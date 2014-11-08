@@ -26,7 +26,6 @@ SceneModule2 = function () {
     glitchPass = new THREE.GlitchPass();
     glitchPass.renderToScreen = true;
     composer.addPass( glitchPass );
-    glitchPass.triggerGlitch(10);
 
     var light1 = new THREE.PointLight( 0x57c6d7, 5, 100 );
     light1.position.x = 90;
@@ -38,31 +37,46 @@ SceneModule2 = function () {
     light2.position.y = 50;
     scene.add( light2 );
 
-    var light3 = new THREE.PointLight( 0xffffff, 5, 5000 );
+    var light3 = new THREE.PointLight( 0xffffff, 500, 0 );
+    light3.position.z = -10000;
     light3.position.x = 0;
-    light3.position.y = 0;
+    light3.position.y = 10000;
     scene.add( light3 );
-    
+
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
 
     var stars = new THREE.Object3D();
     scene.add( stars );
+    
+    var bigStars = new THREE.Object3D();
+    scene.add( bigStars );
 
-    var geometry = new THREE.SphereGeometry( 1.5, 10,10 );
+    var starGeo = new THREE.SphereGeometry( 1.5, 10,10 );
     var material = new THREE.MeshLambertMaterial( {
         shading: THREE.FlatShading
     } );
 
     for ( var i = 0; i < 5000; i ++ ) {
 
-        var object = new THREE.Mesh( geometry, material );
+        var object = new THREE.Mesh( starGeo, material );
         object.position.x = Math.random()*1000;
         object.position.y = Math.random()*1000;
         object.position.z = Math.random()*1000;
         object.rotation.x = Math.random();
         object.rotation.y = Math.random();
         stars.add( object );
+    }
+    
+    for ( var i = 0; i < 100; i ++ ) {
+
+        var object = new THREE.Mesh( starGeo, material );
+        object.position.x = Math.random()*800;
+        object.position.y = Math.random()*800;
+        object.position.z = Math.random()*800;
+        object.rotation.x = Math.random();
+        object.rotation.y = Math.random();
+        bigStars.add( object );
     }
 
     //
@@ -75,9 +89,10 @@ SceneModule2 = function () {
 
         startPosition.fromArray( parameters.startPosition );
         endPosition.fromArray( parameters.endPosition );
-        deltaPosition.subVectors( endPosition, startPosition );	  
+        deltaPosition.subVectors( endPosition, startPosition );
+        glitchPass.triggerGlitch(10);
     };
-    
+
     this.update = function ( t ) {
 
         camera.position.copy( deltaPosition );
@@ -93,6 +108,22 @@ SceneModule2 = function () {
             mesh.rotation.y = scale;
             mesh.scale.set( scale, scale, scale );
         }
+        
+        for (var i = 0, l = bigStars.children.length; i < l; i++){
+            var mesh = bigStars.children[ i ];
+            //var scale = Math.cos((t*(119/120))*100)+2;
+            //var scale = Math.max(0, Math.min(5, 5-((t*119)%14.875)));
+            var scale = Math.max(1, Math.min(2, 2 - 0.1*((t*119*9*2)%119/9*1.8)));
+            mesh.rotation.x = Math.sin(t*25);
+            mesh.rotation.y = scale;
+            mesh.scale.set( scale, scale, scale );
+        }
+        //if (t = 0.1)
+            //console.log(t);
+        //light3.intensity = Math.max(0, Math.min(10, 10 - ((t*119*4)%119/4)));
+        //light3.intensity = Math.max(0, Math.min(10, 10 - 0.4*((t*119*9*2)%119/9*1.8)));
+        //light3.intensity = Math.cos(t*899/4)*5;
+        //console.log(t);
         composer.render();
         //renderer.render( scene, camera );
     };
