@@ -1,6 +1,6 @@
 /*global window, jQuery, THREE */
 
-SceneModule2 = function () {
+SceneModule2a = function () {
 
     FRAME.Module.call( this );
 
@@ -23,7 +23,7 @@ SceneModule2 = function () {
     var composer = new THREE.EffectComposer( renderer );
     composer.addPass( new THREE.RenderPass( scene, camera ) );
 
-    glitchPass = new THREE.GlitchPass();
+    //glitchPass = new THREE.GlitchPass();
     glitchPass.renderToScreen = true;
     composer.addPass( glitchPass );
 
@@ -41,10 +41,7 @@ SceneModule2 = function () {
     light3.position.z = -10000;
     light3.position.x = 0;
     light3.position.y = 10000;
-    scene.add( light3 );
-
-    var light = new THREE.AmbientLight(0xffffff);
-    scene.add(light);*/
+    scene.add( light3 );*/
 
     var stars = new THREE.Object3D();
     scene.add( stars );
@@ -91,15 +88,7 @@ SceneModule2 = function () {
         endPosition.fromArray( parameters.endPosition );
         deltaPosition.subVectors( endPosition, startPosition );
         glitchPass.triggerGlitch(10);
-    };
-
-    this.update = function ( t ) {
-
-        camera.position.copy( deltaPosition );
-        camera.position.multiplyScalar( t );
-        camera.position.add( startPosition );
-        camera.lookAt( scene.position );
-
+        
         for ( var i = 0, l = stars.children.length; i < l; i ++ ) {
 
             var mesh = stars.children[ i ];
@@ -108,24 +97,24 @@ SceneModule2 = function () {
             //mesh.rotation.y = scale;
             mesh.scale.set( scale, scale, scale );
         }
+    };
+
+    this.update = function ( t ) {
+
+        camera.position.copy( deltaPosition );
+        camera.position.multiplyScalar( t );
+        camera.position.add( startPosition );
+        camera.lookAt( scene.position );
         
         for (var i = 0, l = bigStars.children.length; i < l; i++){
             var mesh = bigStars.children[ i ];
-            //var scale = Math.cos((t*(119/120))*100)+2;
-            //var scale = Math.max(0, Math.min(5, 5-((t*119)%14.875)));
-            var scale = Math.max(1, Math.min(2, 2 - 0.1*((t*119*9*2)%119/9*1.8)));
-            //mesh.rotation.x = Math.sin(t*25);
-            //mesh.rotation.y = scale;
+            
+            //var scale = Math.max(1, Math.min(2, 2 - 0.1*((t*119*9*2/4)%119/9*1.8)));
+            var scale = Math.max(1, Math.min(2, 2 - 0.1*((t*119*9)%119/9*1.8)));
             mesh.scale.set( scale, scale, scale );
         }
-        //if (t = 0.1)
-            //console.log(t);
-        //light3.intensity = Math.max(0, Math.min(10, 10 - ((t*119*4)%119/4)));
-        //light3.intensity = Math.max(0, Math.min(10, 10 - 0.4*((t*119*9*2)%119/9*1.8)));
-        //light3.intensity = Math.cos(t*899/4)*5;
-        //console.log(t);
+        
         composer.render();
-        //renderer.render( scene, camera );
     };
 
 };

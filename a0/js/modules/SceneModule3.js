@@ -1,6 +1,6 @@
 /*global window, jQuery, THREE */
 
-SceneModule2 = function () {
+SceneModule3 = function () {
 
     FRAME.Module.call( this );
 
@@ -23,7 +23,6 @@ SceneModule2 = function () {
     var composer = new THREE.EffectComposer( renderer );
     composer.addPass( new THREE.RenderPass( scene, camera ) );
 
-    glitchPass = new THREE.GlitchPass();
     glitchPass.renderToScreen = true;
     composer.addPass( glitchPass );
 
@@ -41,14 +40,11 @@ SceneModule2 = function () {
     light3.position.z = -10000;
     light3.position.x = 0;
     light3.position.y = 10000;
-    scene.add( light3 );
-
-    var light = new THREE.AmbientLight(0xffffff);
-    scene.add(light);*/
+    scene.add( light3 );*/
 
     var stars = new THREE.Object3D();
     scene.add( stars );
-    
+
     var bigStars = new THREE.Object3D();
     scene.add( bigStars );
 
@@ -60,14 +56,14 @@ SceneModule2 = function () {
     for ( var i = 0; i < 5000; i ++ ) {
 
         var object = new THREE.Mesh( starGeo, material );
-        object.position.x = Math.random()*1000;
-        object.position.y = Math.random()*1000;
-        object.position.z = Math.random()*1000;
+        object.position.x = Math.random()*1200;
+        object.position.y = Math.random()*1200;
+        object.position.z = Math.random()*1200;
         object.rotation.x = Math.random();
         object.rotation.y = Math.random();
         stars.add( object );
     }
-    
+
     for ( var i = 0; i < 100; i ++ ) {
 
         var object = new THREE.Mesh( starGeo, material );
@@ -78,6 +74,17 @@ SceneModule2 = function () {
         object.rotation.y = Math.random();
         bigStars.add( object );
     }
+
+    var planetGeo = new THREE.CubeGeometry(100,100,100);
+    var planetMat = new THREE.MeshPhongMaterial( {
+        shading: THREE.FlatShading,
+        emissive: 0xffffff
+    } );
+    var planet = new THREE.Mesh(planetGeo, planetMat);
+    scene.add(planet);
+    planet.position.x = 600;
+    planet.position.y = 380;
+    planet.position.z = 850;
 
     //
 
@@ -91,6 +98,20 @@ SceneModule2 = function () {
         endPosition.fromArray( parameters.endPosition );
         deltaPosition.subVectors( endPosition, startPosition );
         glitchPass.triggerGlitch(10);
+
+        for (var i = 0, l = bigStars.children.length; i < l; i++){
+            var mesh = bigStars.children[ i ];
+
+            var scale = Math.floor(Math.random() * (2 - 0.5 + 1)) + 0.5;
+            mesh.scale.set( scale, scale, scale );
+        }
+
+        for ( var i = 0, l = stars.children.length; i < l; i ++ ) {
+
+            var mesh = stars.children[ i ];
+            var scale = 0.25;
+            mesh.scale.set( scale, scale, scale );
+        }
     };
 
     this.update = function ( t ) {
@@ -100,32 +121,17 @@ SceneModule2 = function () {
         camera.position.add( startPosition );
         camera.lookAt( scene.position );
 
-        for ( var i = 0, l = stars.children.length; i < l; i ++ ) {
-
-            var mesh = stars.children[ i ];
-            var scale = 0.25;
-            //mesh.rotation.x = Math.sin(t*25);
-            //mesh.rotation.y = scale;
-            mesh.scale.set( scale, scale, scale );
-        }
-        
         for (var i = 0, l = bigStars.children.length; i < l; i++){
             var mesh = bigStars.children[ i ];
             //var scale = Math.cos((t*(119/120))*100)+2;
             //var scale = Math.max(0, Math.min(5, 5-((t*119)%14.875)));
-            var scale = Math.max(1, Math.min(2, 2 - 0.1*((t*119*9*2)%119/9*1.8)));
+            var scale = Math.max(0.8, Math.min(2, 2 - 0.1*((t*119*9*2)%119/9*1.8)));
             //mesh.rotation.x = Math.sin(t*25);
             //mesh.rotation.y = scale;
             mesh.scale.set( scale, scale, scale );
         }
-        //if (t = 0.1)
-            //console.log(t);
-        //light3.intensity = Math.max(0, Math.min(10, 10 - ((t*119*4)%119/4)));
-        //light3.intensity = Math.max(0, Math.min(10, 10 - 0.4*((t*119*9*2)%119/9*1.8)));
-        //light3.intensity = Math.cos(t*899/4)*5;
-        //console.log(t);
+
         composer.render();
-        //renderer.render( scene, camera );
     };
 
 };

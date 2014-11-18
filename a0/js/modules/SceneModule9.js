@@ -1,6 +1,6 @@
 /*global window, jQuery, THREE */
 
-SceneModule1 = function () {
+SceneModule8 = function () {
 
     FRAME.Module.call( this );
 
@@ -30,12 +30,12 @@ SceneModule1 = function () {
     this.glitchPath = glitchPass;
 
     var light1 = new THREE.PointLight( 0x57c6d7, 0, 100 );
-    light1.position.x = 110;
+    light1.position.x = 80;
     light1.position.y = 50;
     scene.add( light1 );
 
     var light2 = new THREE.PointLight( 0xe09a20, 0, 110 );
-    light2.position.x = -120;
+    light2.position.x = -80;
     light2.position.y = 20;
     scene.add( light2 );
 
@@ -68,7 +68,7 @@ SceneModule1 = function () {
         shading: THREE.NoShading
     } );
     var planet = new THREE.Mesh(planetGeo, planetMat);
-    scene.add(planet);
+    //scene.add(planet);
 
     //
 
@@ -92,19 +92,18 @@ SceneModule1 = function () {
         camera.position.add( startPosition );
         camera.lookAt( scene.position );
 
-        if (t > 0.4 && t < 0.95){
-            //light1.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*59.5)%7.43754)));
-            //light2.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*59.5)%7.43754)));
-            light1.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*119)%29.7443)));
-            light2.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*119)%29.7443)));
-        }
+        light1.intensity = Math.max(0, Math.min(5, 5 - 0.6*(((t+0.19)*119)%(29.7443/2))));
 
-        if (t > 0.25){
-            light3.intensity = Math.max(0, Math.min(0.5, 0.1*((t*7.4375)%1.8593869)));
-            planetMat.emissive = new THREE.Color( light3.intensity,light3.intensity,light3.intensity );
-        }
-        
-            planet.position.x = 0;
+        if(t < 0.935)
+            light2.intensity = Math.max(0, Math.min(5, 5 - ((t*119)%(29.7443/8))));
+        else if (t > 0.955)
+            light2.intensity = Math.max(0, Math.min(10, 10 - 0.6*(((t+0.955)*119)%(29.7443/2))));
+
+        //light3.intensity = Math.max(0, Math.min(0.5, 0.5 - 0.05*((t*119)%(29.7443/8))));
+
+        //planetMat.emissive = new THREE.Color( light3.intensity,light3.intensity,light3.intensity );
+
+        planet.position.x = 0;
 
         for ( var i = 0, l = group.children.length; i < l; i ++ ) {
 

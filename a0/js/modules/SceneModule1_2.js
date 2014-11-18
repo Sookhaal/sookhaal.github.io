@@ -26,17 +26,18 @@ SceneModule1 = function () {
     glitchPass = new THREE.GlitchPass();
     glitchPass.renderToScreen = true;
     composer.addPass( glitchPass );
+    //glitchPass.triggerGlitch(10);
 
     this.glitchPath = glitchPass;
 
     var light1 = new THREE.PointLight( 0x57c6d7, 0, 100 );
-    light1.position.x = 110;
+    light1.position.x = 90;
     light1.position.y = 50;
     scene.add( light1 );
 
     var light2 = new THREE.PointLight( 0xe09a20, 0, 110 );
-    light2.position.x = -120;
-    light2.position.y = 20;
+    light2.position.x = -90;
+    light2.position.y = 50;
     scene.add( light2 );
 
     var light3 = new THREE.PointLight( 0xffffff, 0, 500 );
@@ -63,12 +64,13 @@ SceneModule1 = function () {
         group.add( object );
     }
 
-    var planetGeo = new THREE.CubeGeometry(15,15,15);
-    var planetMat = new THREE.MeshLambertMaterial( {
-        shading: THREE.NoShading
-    } );
-    var planet = new THREE.Mesh(planetGeo, planetMat);
-    scene.add(planet);
+    var planeGeo = new THREE.PlaneGeometry(400,200,10,10);
+    var planeMat = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+    var plane = new THREE.Mesh(planeGeo, planeMat);
+    plane.rotation.x = -Math.PI/2;
+    plane.position.y = -25;
+    plane.receiveShadow = true;
+    //scene.add(plane);
 
     //
 
@@ -92,19 +94,20 @@ SceneModule1 = function () {
         camera.position.add( startPosition );
         camera.lookAt( scene.position );
 
-        if (t > 0.4 && t < 0.95){
-            //light1.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*59.5)%7.43754)));
-            //light2.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*59.5)%7.43754)));
-            light1.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*119)%29.7443)));
-            light2.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*119)%29.7443)));
+        if (t > 0.4){
+            light1.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*119)%29.75)));
+            light2.intensity = Math.max(0, Math.min(5, 5 - 0.6*((t*119)%29.75)));
         }
 
-        if (t > 0.25){
-            light3.intensity = Math.max(0, Math.min(0.5, 0.1*((t*7.4375)%1.8593869)));
-            planetMat.emissive = new THREE.Color( light3.intensity,light3.intensity,light3.intensity );
+        if (t > 0.25)
+            light3.intensity = Math.max(0, Math.min(0.5, 0.1*((t*7.4375)%1.859375)));
+        //Math.max(0, Math.min(1, 5 - ((t*119)%59.5)));
+        /*light1.position.x = Math.sin( t * 5 ) * 100;
+        light1.position.z = Math.cos( t * 5 ) * 100;*/
+
+        if (light1.intensity >= 4.9){
+            //glitchPass.triggerGlitch(7);
         }
-        
-            planet.position.x = 0;
 
         for ( var i = 0, l = group.children.length; i < l; i ++ ) {
 
@@ -114,11 +117,6 @@ SceneModule1 = function () {
             mesh.rotation.y = scale;
             mesh.scale.set( scale, scale, scale );
         }
-
-
-
-
-
         composer.render();
         //renderer.render( scene, camera );
     };
