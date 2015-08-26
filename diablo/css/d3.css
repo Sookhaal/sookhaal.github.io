@@ -1,0 +1,165 @@
+body {
+	background: #000;
+	color: #dedede;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+li {
+	list-style-type: none;
+}
+
+span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+h2{
+	padding-left: 10px;
+}
+
+.wrapper {
+	max-width: 994px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.text-middle {
+	vertical-align: middle;
+}
+
+.page-header {
+	height: 355px;
+	border-bottom-color: #000;
+}
+
+.body {
+	background: #12110f;
+	padding-top: 15px;
+	position: relative;
+}
+
+.crest {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	/*top: 25px;*/
+	left: 25px;
+}
+
+.item-div {
+	color: #BF642F !important;
+	background-color: #252017;
+	border: 1px solid #382F1F;
+	margin-left: -15px;
+	margin-right: -15px;
+	/*max-height: 130px;*/
+}
+
+.item-div:hover {
+	color: #d36424 !important;
+	background-color: #33250E;
+}
+
+.item-img {
+	/*border-right: 1px solid rgba(56, 47, 31, 0.44);*/
+	display: inline-block;
+	vertical-align: middle;
+	margin: -1px 4px -1px -1px;
+	max-height: 128px;
+}
+
+.item-description {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.row-wear {
+	padding-bottom: 25px;
+}
+
+.build {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	/*top: 25px;*/
+	left: 25px;
+	display: block;
+}
+
+.important-info{
+	padding-bottom: 153px; /*128 + 25*/
+}
+
+/*CLASSES*/
+
+.hero-barbarian {
+	background-image: url("http://eu.battle.net/d3/static/images/hero/barbarian/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.hero-barbarian .crest {
+	background: url("http://eu.battle.net/d3/static/images/hero/barbarian/crest.png") no-repeat;
+}
+
+.hero-crusader {
+	background-image: url("http://eu.battle.net/d3/static/images/hero/crusader/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.hero-crusader .crest {
+	background: url("http://eu.battle.net/d3/static/images/hero/crusader/crest.png") no-repeat;
+}
+
+.hero-demonhunter {
+	background-image: url("http://eu.battle.net/d3/static/images/hero/demon-hunter/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.hero-demonhunter .crest {
+	background: url("http://eu.battle.net/d3/static/images/hero/demon-hunter/crest.png") no-repeat;
+}
+
+.hero-monk {
+	background-image: url("http://eu.battle.net/d3/static/images/hero/monk/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.hero-monk .crest {
+	background: url("http://eu.battle.net/d3/static/images/hero/monk/crest.png") no-repeat;
+}
+
+.hero-witchdoctor {
+	background-image: url("http://eu.battle.net/d3/static/images/hero/witch-doctor/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.hero-witchdoctor .crest {
+	background: url("http://eu.battle.net/d3/static/images/hero/witch-doctor/crest.png") no-repeat;
+}
+
+.hero-wizard {
+	background-image: url("http://eu.battle.net/d3/static/images/hero/wizard/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.hero-wizard .crest {
+	background: url("http://eu.battle.net/d3/static/images/hero/wizard/crest.png") no-repeat;
+}
