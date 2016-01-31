@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>AUDIOmorph</title>
+        <link href="//fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/audioplayer.css" />
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/audioplayer.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="l" class="left"></div>
+            <div id="c" class="center">
+                <div class="content">
+                    <div class="logo"></div>
+
+                    <!-- Lecteur //-->
+                    <a href="#" id="toggle1" class="toggle">
+                        <h1>Ecouter</h1>
+                    </a>
+                    <div id="content1" class="player">
+                        <div class="player_info">
+                            <p><b>Dying Flag</b> - Painful Revenge</p>
+                        </div>
+
+                        <audio preload="none" controls>
+                            <source src="res/PainfulExtrait1.wav" />
+                            <source src="res/PainfulExtrait1.ogg" />
+                            <source src="res/PainfulExtrait1.mp3" />
+                        </audio>
+                    </div>
+
+                    <!-- S'informer //-->
+                    <a href="#" id="toggle2" class="toggle">
+                        <h1>S'informer</h1>
+                    </a>
+                    <div id="content2" class="content_text"></div>
+
+                    <!-- Tarifs //-->
+                    <a href="#" id="toggle3" class="toggle">
+                        <h1>Tarifs</h1>
+                    </a>
+                    <div id="content3" class="content_text"></div>
+
+                    <!-- Contacter //-->
+                    <a href="#" id="toggle4" class="toggle">
+                        <h1>Contacter</h1>
+                    </a>
+                    <div id="content4" class="content_text"></div>
+
+                </div>
+            </div>
+            <div id="r" class="right"></div> 
+        </div>
+        <div class="preload">
+            <img src="css/img/logo_hover.png" width="1" height="1" alt="logo hover"/>
+        </div>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
