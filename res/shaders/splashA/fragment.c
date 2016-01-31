@@ -44,7 +44,7 @@ void main()
 {
 	vec2 uv = UV;
 	vec2 p = gl_FragCoord.xy / resolution.xy - 0.5;
-	//p.x *= resolution.x / resolution.y;
+	p.x *= resolution.x / resolution.y;
 
 	p.y *= .3;
 	p.y += .1;
