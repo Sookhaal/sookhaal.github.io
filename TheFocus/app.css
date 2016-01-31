@@ -1,0 +1,69 @@
+﻿html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	cursor: default;
+	margin: 0;
+	color: #ddd;
+	background-color: black;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	overflow: hidden;
+}
+
+#splash {
+	font-family: Roboto;
+	text-align: center;
+	width: 100%;
+	background-color: #081922;
+	background-color: rgba(8, 25, 34, 0.5);
+	padding: 40px 0;
+	z-index: 2;
+	opacity: 0;
+	transition: visibility 0s 7s, opacity 7s ease-in-out;
+}
+
+button {
+	font-family: Roboto;
+	color: #ddd;
+	background-color: #06141b;
+	border: 2px solid #052232;
+	padding: 10px 30px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: xx-large;
+	outline-color: #39a9e8;
+}
+
+h1 {
+	font-size: 5em;
+	margin: 0;
+}
+
+p { align-self: flex-end; }
+
+button:hover, a:hover { color: #39a9e8; }
+
+#demo, #splash-demo {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+#demo {
+	z-index: -1;
+
+	/* TODO missing vendor specific once done */
+	transition: opacity 5s linear, visibility 1s 1s;
+}
+
+#splash-demo {
+	opacity: 0;
+	/* TODO missing vendor specific once done */
+	transition: opacity 5s linear, visibility 0s 5s;
+	z-index: 0;
+}

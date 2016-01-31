@@ -1,0 +1,17 @@
+﻿{
+	"time": {
+		"type": "f",
+		"value": 0
+	},
+	"blurTransition": {
+		"type": "f",
+		"value": 0
+	},
+	"resolution": {
+		"type": "v2",
+		"value": {
+			"x": 0,
+			"y": 0
+		}
+	}
+}
